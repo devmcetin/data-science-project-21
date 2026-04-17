@@ -78,7 +78,7 @@ def run_tests():
     user_score = (collector.passed / (collector.passed + collector.failed)) * 100
     print(round(user_score, 2))
     
-    url = "https://edugen-backend-487d2168bc6c.herokuapp.com/projectLog/"
+    url = "https://kaizu-api-8cd10af40cb3.herokuapp.com/projectLog"
     payload = {
         "user_id": 34,
         "project_id": 695,

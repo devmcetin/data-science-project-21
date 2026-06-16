@@ -44,8 +44,12 @@ def test_is_spell_significant():
     assert is_spell_significant([1,1,1],[0,0,0],0.05) in [True,False]
 
 def test_summary_report():
-    report = generate_spell_summary_report([1,0,1])
-    assert "Toplam" in report
+    mock_data = [
+        {"name": "Büyü1", "damage": 10, "mana": 5, "hit": True},
+        {"name": "Büyü2", "damage": 20, "mana": 10, "hit": False}
+    ]
+    report = generate_spell_summary_report(mock_data)
+    assert "Total Damage" in report["summary"]["Büyü1"]
 
 def send_post_request(url: str, data: dict, headers: dict = None):
     try:
@@ -80,7 +84,7 @@ def run_tests():
     
     url = "https://kaizu-api-8cd10af40cb3.herokuapp.com/projectLog"
     payload = {
-        "user_id": 34,
+        "user_id": 518,
         "project_id": 695,
         "user_score": round(user_score, 2),
         "is_auto": False
